@@ -1,0 +1,4 @@
+interface:
+  display_name: "Personal Dev Env"
+  short_description: "Bootstrap a personal Linux or Windows dev setup"
+  default_prompt: "Use $personal-dev-env to set up my personal development environment on Linux or Windows."
