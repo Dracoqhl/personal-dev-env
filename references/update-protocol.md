@@ -9,7 +9,7 @@ Use this protocol whenever the user asks to persist a new tool, service, workflo
 3. Record dependencies instead of duplicating full install instructions.
 4. Do not pin versions unless the user asks or compatibility requires it.
 5. Add personal defaults, exceptions, or special handling to `preferences.md`.
-6. Before changing the actual environment, show the planned workflow and ask for confirmation.
+6. Before changing the actual environment, include the new item in the consolidated checklist and ask for one plan-level confirmation.
 
 ## Updating an Existing Workflow
 
@@ -17,6 +17,7 @@ Use this protocol whenever the user asks to persist a new tool, service, workflo
 2. Prefer verification and repair over reinstall.
 3. Only remove, recreate, downgrade, or replace components after explicit user confirmation.
 4. Record newly discovered compatibility issues or personal decisions in `preferences.md`.
+5. Keep confirmation behavior plan-level: ask once for the selected checklist, then ask again only for destructive or high-risk actions.
 
 ## Removing a Tool or Service
 

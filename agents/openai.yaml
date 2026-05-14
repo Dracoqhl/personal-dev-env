@@ -1,4 +1,4 @@
 interface:
   display_name: "Personal Dev Env"
-  short_description: "Restore and maintain a personal Linux dev environment"
-  default_prompt: "Use $personal-dev-env to check, restore, or update my personal Linux development environment."
+  short_description: "Restore and maintain this device's dev environment"
+  default_prompt: "Use $personal-dev-env to check, restore, or update my personal development environment on this device."
