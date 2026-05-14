@@ -161,9 +161,26 @@ Supporting utilities:
 - tmux
 - vim
 - ripgrep
+- tmux plugin manager (TPM)
+- tmux-better-mouse-mode
 
 Workflow:
 
 1. Verify presence when needed by another workflow or when the user asks for a full environment check.
 2. Install missing utilities only as supporting dependencies for active workflows.
 3. Do not treat OS-provided basics such as `ssh` as personal environment tools unless the user explicitly asks.
+
+Tmux plugin workflow:
+
+1. Verify `tmux`.
+2. Verify TPM at `~/.tmux/plugins/tpm`.
+3. Verify `NHDaly/tmux-better-mouse-mode` at `~/.tmux/plugins/tmux-better-mouse-mode`.
+4. Verify `~/.tmux.conf` keeps existing user settings and includes TPM plugin entries plus `run '~/.tmux/plugins/tpm/tpm'`.
+5. Reload tmux configuration when a tmux server is running.
+
+Current observed state:
+
+- tmux 3.4 installed.
+- TPM installed at `/root/.tmux/plugins/tpm`.
+- `tmux-better-mouse-mode` installed from `https://github.com/NHDaly/tmux-better-mouse-mode` at `/root/.tmux/plugins/tmux-better-mouse-mode`.
+- `/root/.tmux.conf` enables mouse mode, configures `@scroll-speed-num-lines-per-scroll 1`, includes TPM, and includes `NHDaly/tmux-better-mouse-mode`.
