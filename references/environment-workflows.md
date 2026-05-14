@@ -123,6 +123,33 @@ Current observed state:
 - Status: running
 - Ports: `30080->80`, `30081->81`, `3389->443`
 
+## LaTeX Rendering
+
+Required capability:
+
+- TeX Live Full distribution
+- LaTeX engines such as `pdflatex`, `xelatex`, and `lualatex`
+- `latexmk` for automated document builds
+
+Workflow:
+
+1. Verify LaTeX engine commands.
+2. Verify `texlive-full` and supporting packages through the system package manager when available.
+3. If missing, include TeX Live Full installation in the consolidated checklist.
+4. After installation or repair, compile a minimal LaTeX document as verification.
+
+Notes:
+
+- On Ubuntu/Debian systems, use the native apt package `texlive-full`.
+- Treat TeX Live Full as a large disk and network operation.
+
+Current observed state:
+
+- Package: `texlive-full` 2023.20240207-1 installed through apt.
+- Engines verified: `pdflatex`, `xelatex`, `lualatex`.
+- Build tool verified: `latexmk` 4.83.
+- Minimal PDF build verified with `latexmk -pdf`.
+
 ## Basic CLI Utilities
 
 Supporting utilities:

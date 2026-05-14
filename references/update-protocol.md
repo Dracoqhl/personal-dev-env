@@ -30,3 +30,4 @@ Use this protocol whenever the user asks to persist a new tool, service, workflo
 1. Review diffs before committing.
 2. Check for secrets, tokens, private keys, logs, histories, and generated state.
 3. Commit reference updates separately from environment-changing scripts if scripts are introduced later.
+4. Push committed skill repository updates to GitHub so the persisted workflow stays synchronized.
