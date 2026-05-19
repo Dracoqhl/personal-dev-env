@@ -184,3 +184,21 @@ Current observed state:
 - TPM installed at `/root/.tmux/plugins/tpm`.
 - `tmux-better-mouse-mode` installed from `https://github.com/NHDaly/tmux-better-mouse-mode` at `/root/.tmux/plugins/tmux-better-mouse-mode`.
 - `/root/.tmux.conf` enables mouse mode, configures `@scroll-speed-num-lines-per-scroll 1`, includes TPM, and includes `NHDaly/tmux-better-mouse-mode`.
+
+## Remote Screenshot And Clipboard Handling
+
+Known limitation:
+
+- This device is a headless Linux server. GUI clipboard access through X11 may be unavailable from Codex or browser-integrated paste flows.
+- Error pattern: `Failed to paste image: clipboard unavailable: Unknown error while interacting with the clipboard: X11 server connection timed out because it was unreachable`.
+
+Workflow:
+
+1. Treat this as a remote desktop / clipboard transport limitation, not as a PhD Workspace app bug.
+2. Do not try to repair it by installing X11 packages unless the user explicitly asks for a GUI clipboard stack.
+3. Prefer one of these alternatives for UI feedback screenshots:
+   - Upload or attach the screenshot directly in the chat UI when available.
+   - Save the screenshot as a local file on the client machine, then upload it as an attachment.
+   - If the image already exists on the server, provide its full file path so Codex can inspect it with the image viewer.
+   - For browser UI verification initiated by Codex, use Playwright screenshots saved to `/tmp` or the project workspace.
+4. If a future setup needs clipboard bridging, first confirm the actual client path: local desktop, SSH X11 forwarding, VS Code Remote, web terminal, or browser-based Codex. Choose a solution for that path rather than guessing.
