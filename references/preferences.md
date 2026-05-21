@@ -14,6 +14,7 @@
 - Preserve user data, Conda environments, Docker volumes, service configuration, and local config files by default.
 - Do not commit secrets, API tokens, auth files, SSH private keys, shell history, logs, generated Codex state, or local Codex databases.
 - Codex config may contain sensitive provider tokens; record templates or notes only.
+- Codex should not start preview/dev servers or create port forwards by default. When a temporary local preview, visual companion, or dev server is genuinely needed for verification, stop it before finishing and verify that the Codex-started port is no longer listening. The user normally runs project services themselves.
 - Python research setup should use Miniconda and a Conda environment named `phd` with Python 3.9.
 - Nginx Proxy Manager depends on Docker and should be treated as a service workflow, not a simple CLI tool.
 - LaTeX rendering should use the native Ubuntu/Debian `texlive-full` apt package when restored on Linux systems.
