@@ -18,7 +18,8 @@
 - Python research setup should use Miniconda and a Conda environment named `phd` with Python 3.9.
 - Nginx Proxy Manager depends on Docker and should be treated as a service workflow, not a simple CLI tool.
 - LaTeX rendering should use the native Ubuntu/Debian `texlive-full` apt package when restored on Linux systems.
-- tmux should use TPM and restore the `NHDaly/tmux-better-mouse-mode` plugin when tmux is part of the environment setup.
+- Use `zmx` instead of `tmux` for terminal session persistence.
+- Do not restore `tmux`, TPM, or tmux plugins by default unless the user asks for them again.
 - Do not add newly installed tools to this skill before installation. After a tool is successfully installed and verified, ask whether it should be added to the skill for future restoration.
 - When adding plugins, extensions, or optional components to an existing tool, ask whether that addition should be recorded in the skill.
 - Whenever this skill repository is updated, commit the change and push it to GitHub after reviewing the diff for secrets and unrelated edits.
