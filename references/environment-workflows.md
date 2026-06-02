@@ -62,6 +62,25 @@ Notes:
 
 - Do not pin versions unless the user adds a compatibility requirement.
 
+### Codex User-Level Guidance
+
+Required configuration:
+
+- A user-level Codex instruction file that records durable behavior preferences applying across repositories.
+
+Current observed state:
+
+- User-level guidance path on this machine: `/root/.codex/AGENTS.md`.
+- Version-controlled reference copy in this skill: `references/codex/AGENTS.md`.
+- Key service hygiene preference: Codex must not start preview/dev servers, create port forwards, or run project service/startup scripts by default. If a temporary service is required for verification, Codex must record the command, PID, bind address, and port, stop it before finishing, and verify the port is no longer listening.
+
+Workflow:
+
+1. During environment restoration, check whether the Codex user-level guidance file exists.
+2. If missing, recreate it from `references/codex/AGENTS.md` before using Codex for project work.
+3. Periodically compare `/root/.codex/AGENTS.md` against `references/codex/AGENTS.md` and report drift. Do not assume every local edit should immediately update the reference copy; update the reference only when the user confirms the change is a durable global preference.
+4. Do not assume these local guidance files sync automatically through Codex account login; treat them as local environment state unless official documentation confirms otherwise.
+
 ## Python Research Environment
 
 Required capability:
