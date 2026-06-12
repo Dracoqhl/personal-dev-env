@@ -81,45 +81,6 @@ Workflow:
 3. Periodically compare `/root/.codex/AGENTS.md` against `references/codex/AGENTS.md` and report drift. Do not assume every local edit should immediately update the reference copy; update the reference only when the user confirms the change is a durable global preference.
 4. Do not assume these local guidance files sync automatically through Codex account login; treat them as local environment state unless official documentation confirms otherwise.
 
-### Codex Skills, Plugins, And MCP Extensions
-
-Required capability:
-
-- Preserve the user's installed Codex skills and research-oriented Codex extensions.
-- Preserve user-global skill symlinks that expose personal workflow repositories to Codex.
-- Preserve selected MCP server registrations without copying secrets or provider tokens.
-
-Workflow:
-
-1. Verify user-installed Codex skills under `/root/.codex/skills`.
-2. Verify user-global skill symlinks under `/root/.agents/skills`.
-3. Verify enabled Codex plugins through `/root/.codex/config.toml` without recording secrets.
-4. Verify MCP server registrations with `codex mcp list` or `codex mcp get <name>`.
-5. If a skill directory or symlink is missing, restore only that item; do not delete or replace unrelated Codex state.
-6. For MCP servers that require API keys, restore the server command and documented env var names only; ask the user for secrets separately.
-
-Current observed state:
-
-- User-installed skills in `/root/.codex/skills`:
-  - `academic-research-suite`: installed from `Imbad0202/academic-research-skills-codex`, path `skills/academic-research-suite`, observed package version `0.1.12`.
-  - `paper-search`: installed from `openags/paper-search-mcp`, path `claude-code`, adapted for Codex with repository path `/data/tools/paper-search-mcp`.
-  - `pdf`: user-level PDF reading/generation/review skill.
-  - `paper-reading-zh`: Chinese paper deep-reading workflow skill.
-  - `impeccable`: frontend interface design, critique, and polish skill.
-- User-global skill symlinks in `/root/.agents/skills`:
-  - `personal-dev-env -> /data/personal-dev-env`
-  - `personal-knowledge-base -> /data/personal-knowledge-base`
-  - `superpowers -> /root/.codex/superpowers/skills`
-- Enabled Codex plugins:
-  - `github@openai-curated`
-  - `superpowers@openai-curated`
-- Research paper search tooling:
-  - Source checkout: `/data/tools/paper-search-mcp`
-  - Runtime dependency: `uv`
-  - Codex MCP server: `paper-search-mcp`
-  - MCP command: `uv run --directory /data/tools/paper-search-mcp -m paper_search_mcp.server`
-  - Paper source API credentials are intentionally not configured by default. Configure optional values later through `PAPER_SEARCH_MCP_*` environment variables or `/data/tools/paper-search-mcp/.env`.
-
 ## Python Research Environment
 
 Required capability:
@@ -216,7 +177,6 @@ Supporting utilities:
 - curl
 - wget
 - jq
-- uv
 - zmx
 - vim
 - ripgrep
@@ -237,7 +197,6 @@ Zmx workflow:
 
 Current observed state:
 
-- uv 0.11.21 installed at `/root/.local/bin/uv`.
 - zmx 0.6.0 installed at `/usr/local/bin/zmx`.
 - `zmx version` verified, using socket directory `/run/user/0/zmx`.
 - tmux was removed through apt on 2026-05-24 and is no longer present in `PATH`.
